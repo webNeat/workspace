@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# to fix mongodb warning
+export LC_ALL=C
