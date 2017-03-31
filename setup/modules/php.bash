@@ -3,7 +3,7 @@ function install_php {
 	# it can include: phpunit, codeception
 
 	# install php
-	sudo apt-get install -y php php-cli php-xml php-curl php-mbstring php7.0-sqlite libapache2-mod-php
+	sudo apt-get install -y php php-cli php-xml php-curl php-mysql php-mbstring php7.0-sqlite libapache2-mod-php
 
 	# install composer
 	wget https://getcomposer.org/composer.phar
