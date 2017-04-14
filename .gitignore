@@ -1,3 +1,4 @@
 archive
 projects/*
 !projects/.gitkeep
+*.sublime-*

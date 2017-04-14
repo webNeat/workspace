@@ -21,7 +21,7 @@ Vagrant.configure("2") do |config|
     install_git "Amine Ben hammou" webneat@gmail.com vim
     install_mongo
     install_nginx
-    install_node "yarn bower gulp"
+    install_node 7.x "yarn bower gulp"
   SHELL
 end
 

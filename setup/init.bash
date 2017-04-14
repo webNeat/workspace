@@ -19,3 +19,9 @@ sudo apt-get update
 # Installing common packages
 sudo apt-get install -y curl unzip build-essential
 
+# Define `use` function
+function use {
+	for module in "$@"; do
+		source "$setup_path/modules/$module.bash"
+	done
+}

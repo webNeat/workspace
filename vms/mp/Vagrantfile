@@ -2,26 +2,25 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "boxcutter/ubuntu1604-desktop"
 
-  config.vm.network "forwarded_port", guest: 80, host: 8000
+  config.vm.network "forwarded_port", guest: 80, host: 8000, host_ip: "127.0.0.1"
 
   config.vm.synced_folder "../../setup", "/setup"
   config.vm.synced_folder "../../projects", "/projects"
 
   config.vm.provision "shell", inline: <<-SHELL
     source /setup/init.bash
-    source /setup/modules/utils.bash
-    source /setup/modules/git.bash
-    source /setup/modules/apache.bash
-    source /setup/modules/php.bash
-    source /setup/modules/mysql.bash
-    source /setup/modules/node.bash
-    set_hostname wordpress
+    use utils git apache php mysql node wordpress python sublime
     install_git "Amine Ben hammou" webneat@gmail.com vim
     install_apache rewrite
     install_php phpunit codeception robo
     install_mysql
-    install_node 7.x "yarn bower gulp"
+    install_node 6.x "webpack mocha"
+    install_python 2.7
+    set_hostname wp
+    mysql_create_db blog admin secret
+    install_wordpress blog admin secret
+    install_sublime
   SHELL
 end
